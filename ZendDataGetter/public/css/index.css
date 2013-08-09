@@ -1,0 +1,33 @@
+a:link,
+a:visited
+{
+    color: #0398CA;
+}
+table,th, td
+{
+    border:1px solid black;
+}
+
+td
+{
+    text-align: center;
+}
+table
+{
+    border-collapse:collapse;
+    width:50%;
+}
+button
+{
+    font-family: Helvetica, Arial, sans-serif;
+    background-color:#C0C0C0;
+    font-size:17px;
+    border:2px solid;
+}
+button:hover{
+    background-color:#909090;
+}
+
+.hoverable:hover{
+    background-color:yellow;
+}

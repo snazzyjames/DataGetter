@@ -1,0 +1,44 @@
+<?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/index.css') ?>
+
+<?php echo $this->headScript()->appendFile( "/js/jquery-1.9.1.js" )
+                ->appendFile("/js/jquery-ui-1.10.3.custom.min.js")
+                ->appendFile("/js/index.js");
+?>
+
+<div>
+    <button id="filterbutton" name="Filter">Filter</button>
+    <div id="filterform" title="Filter Results" class="ui-widget">
+        <form>
+            <fieldset>
+                <label for='beginningdate'>Beginning Date</label><input type="text" id="beginningdate" name="beginningdate">
+                <label for='enddate'>Ending Date</label><input type="text" name="enddate" id="enddate">
+            </fieldset>
+            <input type="submit" value="Go">
+        </form>
+    </div>
+    <div>
+        Currently showing between: <?php echo $this->beginningDate ?> and <?php echo $this->endDate ?>
+    </div>
+    <table border = "1">
+        <tr>
+            <th>Transaction Date</th>
+            <th>Customer Name</th>
+            <th>Quantity</th>
+            <th>Retail</th>
+            <th>Cost</th>
+            <th>Profit</th>
+            <th>Discount</th>
+        </tr>
+        <?php foreach ($this->transactions as $transaction): ?>
+            <tr class="hoverable">
+                <td><?php echo $transaction['date'] ?></td>
+                <td><?php echo $transaction['first_name'] . " " . $transaction['last_name'] ?></td>
+                <td><?php echo $transaction['quantity']?></td>
+                <td><?php echo "$".$transaction['retail']?></td>
+                <td><?php echo "$".$transaction['cost']?></td>
+                <td><?php echo "$".$transaction['profit']?></td>
+                <td><?php echo "%".$transaction['discount']?></td>
+            </tr>
+        <?php endforeach ?>
+    </table>
+</div>
